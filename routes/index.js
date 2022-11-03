@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Lex Fridman!!!')
-  })
+const mainController = require('../controllers/index');
+router.get('/', mainController.getAll);
 
 module.exports = router;
