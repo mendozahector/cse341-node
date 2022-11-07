@@ -1,0 +1,24 @@
+// LOCALHOST
+###
+GET http://localhost:3000/
+###
+GET http://localhost:3000/contacts
+###
+GET http://localhost:3000/contacts/636984abcc71d4d728e33eb7
+###
+GET http://localhost:3000/contacts/636984abcc71d4d728e33eb8
+###
+GET http://localhost:3000/contacts/636984abcc71d4d728e33eb9
+
+
+// RENDER
+###
+GET https://mendozahectorcse341.onrender.com
+###
+GET https://mendozahectorcse341.onrender.com/contacts
+###
+GET https://mendozahectorcse341.onrender.com/636984abcc71d4d728e33eb7
+###
+GET https://mendozahectorcse341.onrender.com/636984abcc71d4d728e33eb8
+###
+GET https://mendozahectorcse341.onrender.com/636984abcc71d4d728e33eb9
