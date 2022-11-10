@@ -2,13 +2,13 @@
 ###
 GET http://localhost:3000/
 ###
+GET http://localhost:3000/contacts/contactId
+###
+GET http://localhost:3000/contacts/contactId
+###
+GET http://localhost:3000/contacts/contactId
+###
 GET http://localhost:3000/contacts
-###
-GET http://localhost:3000/contacts/636984abcc71d4d728e33eb7
-###
-GET http://localhost:3000/contacts/636984abcc71d4d728e33eb8
-###
-GET http://localhost:3000/contacts/636984abcc71d4d728e33eb9
 
 ### create new contact
 POST http://localhost:3000/contacts HTTP/1.1
@@ -19,14 +19,14 @@ content-type: application/json
 }
 
 ### update contact with specified id
-PUT http://localhost:3000/contacts/636c54af5cb54f6434083f51 HTTP/1.1
+PUT http://localhost:3000/contacts/contactId HTTP/1.1
 content-type: application/json
 
 {
     "favoriteColor":"Blue"
 }
 ###
-PUT http://localhost:3000/contacts/636c54af5cb54f6434083f51 HTTP/1.1
+PUT http://localhost:3000/contacts/contactId HTTP/1.1
 content-type: application/json
 
 {
@@ -34,19 +34,19 @@ content-type: application/json
 }
 
 ### delete contact with specified id
-DELETE  http://localhost:3000/contacts/636c54af5cb54f6434083f51 HTTP/1.1
+DELETE  http://localhost:3000/contacts/contactId HTTP/1.1
 
 // RENDER
 ###
 GET https://mendozahectorcse341.onrender.com
 ###
+GET https://mendozahectorcse341.onrender.com/contacts/contactId
+###
+GET https://mendozahectorcse341.onrender.com/contacts/contactId
+###
+GET https://mendozahectorcse341.onrender.com/contacts/contactId
+###
 GET https://mendozahectorcse341.onrender.com/contacts
-###
-GET https://mendozahectorcse341.onrender.com/contacts/
-###
-GET https://mendozahectorcse341.onrender.com/contacts/
-###
-GET https://mendozahectorcse341.onrender.com/contacts/
 
 ### create new contact
 POST https://mendozahectorcse341.onrender.com/contacts HTTP/1.1
@@ -57,14 +57,14 @@ content-type: application/json
 }
 
 ### update contact with specified id
-PUT https://mendozahectorcse341.onrender.com/ HTTP/1.1
+PUT https://mendozahectorcse341.onrender.com/contacts/contactId HTTP/1.1
 content-type: application/json
 
 {
     "favoriteColor":"Blue"
 }
 ###
-PUT https://mendozahectorcse341.onrender.com/contacts/ HTTP/1.1
+PUT https://mendozahectorcse341.onrender.com/contacts/contactId HTTP/1.1
 content-type: application/json
 
 {
@@ -72,4 +72,4 @@ content-type: application/json
 }
 
 ### delete contact with specified id
-DELETE  https://mendozahectorcse341.onrender.com/contacts/ HTTP/1.1
+DELETE  https://mendozahectorcse341.onrender.com/contacts/contactId HTTP/1.1
