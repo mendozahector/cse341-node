@@ -1,32 +1,59 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.0",
   "info": {
-    "title": "My API",
-    "description": "Description",
+    "title": "CSE 341 Web Backend Developmet II Course API",
+    "description": "Developing a secure REST API that performs CRUD operations on a NoSQL database.<br><br>                  By: Hector Mendoza<br>                  [https://mendozahector.github.io/](https://mendozahector.github.io/)<br><br>                  Tech Stack:<br>                  [Node.js / Express](https://expressjs.com/en/starter/hello-world.html])<br>                  [MongoDB](https://www.mongodb.com/docs/drivers/node/current/quick-start/)<br>                  [SwaggerUI](https://www.npmjs.com/package/swagger-ui-express)",
+    "contact": {
+      "email": "hectormmendozar@outlook.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
     "version": "1.0.0"
   },
-  "host": "mendozahectorcse341.onrender.com",
-  "basePath": "/",
-  "schemes": [
-    "https"
+  "servers": [
+    {
+      "url": "https://mendozahectorcse341.onrender.com",
+      "description": "Render"
+    },
+    {
+      "url": "http://localhost:3000/",
+      "description": "Sandox"
+    }
+  ],
+  "tags": [
+    {
+      "name": "main",
+      "description": "API Controller"
+    },
+    {
+      "name": "contacts",
+      "description": "Access to contacts in MongoDB"
+    }
   ],
   "paths": {
     "/": {
       "get": {
+        "tags": ["main"],
+        "summary": "Welcome message and information",
         "description": "",
+        "parameters": [],
         "produces": [
           "application/json"
         ],
-        "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
-          }
+            "description": "Successful Operation: Returns main message"
+          },
+          "500": {"description": "Internal Server Error"}
         }
       }
     },
     "/contacts/": {
       "get": {
+        "tags": ["contacts"],
+        "summary": "get all contacts",
         "description": "",
         "produces": [
           "application/json"
@@ -34,50 +61,54 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
-          }
+            "description": "Successful Operation: Returns all contacts"
+          },
+          "500": {"description": "Internal Server Error"}
         }
       },
       "post": {
+        "tags": ["contacts"],
+        "summary": "add a new contact",
         "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "birthday": {
-                  "example": "any"
-                },
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Successful Operation: Returns new contact ID"
+          },
+          "500": {"description": "Internal Server Error"}
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "birthday": {
+                    "example": "any"
+                  },
+                  "firstName": {
+                    "example": "any"
+                  },
+                  "lastName": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  },
+                  "favoriteColor": {
+                    "example": "any"
+                  }
                 }
               }
             }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
     },
     "/contacts/{id}": {
       "get": {
+        "tags": ["contacts"],
+        "summary": "get a contact by id",
         "description": "",
         "produces": [
           "application/json"
@@ -87,75 +118,84 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
-          }
+            "description": "Successful Operation: Returns contact information if found"
+          },
+          "500": {"description": "Internal Server Error"}
         }
       },
       "put": {
+        "tags": ["contacts"],
+        "summary": "update a contact by id",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
-                  "example": "any"
-                }
-              }
+              "type": "string"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Successful Operation: Contact updated"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "500": {"description": "Internal Server Error"}
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "example": "any"
+                  },
+                  "lastName": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  },
+                  "favoriteColor": {
+                    "example": "any"
+                  },
+                  "birthday": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
           }
         }
       },
       "delete": {
+        "tags": ["contacts"],
+        "summary": "delete a contact by id",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successful Operation: Contact deleted"
           },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "500": {"description": "Internal Server Error"}
         }
       }
     }

@@ -13,6 +13,7 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
+  //.use('/api-docs', swaggerUi.serve, swaggerUi.setup(null, options))
   .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
   .use('/', require('./routes'));
 
